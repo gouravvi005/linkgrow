@@ -61,7 +61,7 @@ export function Hero() {
                                 {[1, 2, 3, 4].map((i) => (
                                     <div key={i} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white">
                                         <Image
-                                            src={`https://picsum.photos/seed/creator-${i}/100/100`}
+                                            src={`/images/creator-${i}.webp`}
                                             alt="Creator"
                                             fill
                                             className="object-cover"

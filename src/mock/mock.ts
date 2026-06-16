@@ -222,7 +222,7 @@ export const featureCategories = [
       { icon: 'lucide:globe', title: 'Custom Domains', description: 'Use your own brand name (e.g., links.yourbrand.com) for maximum trust.' },
       { icon: 'lucide:smartphone', title: 'Mobile-First Design', description: 'Every page is optimized for lightning-fast loading on mobile devices.' }
     ],
-    image: 'https://picsum.photos/seed/bio-pages/1200/800',
+    image: '/images/242-1200x800.jpg',
     color: 'brand'
   },
   {
@@ -236,7 +236,7 @@ export const featureCategories = [
       { icon: 'lucide:zap', title: 'Automated Replies', description: 'Set up instant auto-responders to keep leads engaged 24/7.' },
       { icon: 'lucide:users', title: 'Lead CRM Sync', description: 'Automatically sync lead data to your favorite CRM tools like HubSpot or Zoho.' }
     ],
-    image: 'https://picsum.photos/seed/whatsapp/1200/800',
+    image: '/images/553-1200x800.jpg',
     color: 'accent',
     reverse: true
   },
@@ -251,7 +251,7 @@ export const featureCategories = [
       { icon: 'lucide:split', title: 'A/B Testing', description: 'Test different link titles and button colors to find what converts best.' },
       { icon: 'lucide:map-pin', title: 'Geographic Insights', description: 'See exactly where your traffic is coming from to optimize local campaigns.' }
     ],
-    image: 'https://picsum.photos/seed/analytics/1200/800',
+    image: '/images/831-1200x800.jpg',
     color: 'brand'
   },
   {
@@ -265,7 +265,7 @@ export const featureCategories = [
       { icon: 'lucide:shield-check', title: 'White-Label Pages', description: 'Remove Linkgrow branding and make it look 100% like your own platform.' },
       { icon: 'lucide:user-plus', title: 'Team Management', description: 'Invite team members to manage multiple client pages from one dashboard.' }
     ],
-    image: 'https://picsum.photos/seed/tools/1200/800',
+    image: '/images/312-1200x800.jpg',
     color: 'accent',
     reverse: true
   }

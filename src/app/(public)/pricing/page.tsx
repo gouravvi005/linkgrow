@@ -205,7 +205,7 @@ export default function PricingPage() {
           <div className="mb-12 flex justify-center">
             <div className="h-24 w-24 rounded-full border-4 border-brand/20 p-1">
               <img
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=creator"
+                src="/images/avatar.svg"
                 alt="Testimonial"
                 className="h-full w-full rounded-full object-cover bg-white"
               />

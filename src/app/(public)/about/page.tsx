@@ -31,7 +31,7 @@ export default function AboutPage() {
               <span className="text-gradient">build empires.</span>
             </h1>
             <p className="max-w-2xl mx-auto text-xl text-muted-foreground font-medium leading-relaxed">
-              We started Linkgrow with a simple idea: Social media traffic is temporary, but business relationships are permanent. 
+              We started Linkgrow with a simple idea: Social media traffic is temporary, but business relationships are permanent.
               Our platform bridges the gap.
             </p>
           </motion.div>
@@ -45,9 +45,9 @@ export default function AboutPage() {
             <div className="relative">
               <div className="absolute -inset-4 bg-brand/10 blur-3xl rounded-full" />
               <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl aspect-video">
-                <img 
-                  src="https://picsum.photos/seed/linkgrow-about/800/450" 
-                  alt="Our Story" 
+                <img
+                  src="/images/280-800x450.jpg"
+                  alt="Our Story"
                   className="w-full h-full object-cover"
                 />
               </div>

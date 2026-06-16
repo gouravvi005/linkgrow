@@ -113,7 +113,7 @@ export default function WorkflowPage() {
             <div className="flex-1 w-full relative">
               <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/3] bg-slate-900 group-hover:scale-[1.02] transition-transform duration-700">
                 <img
-                  src="https://picsum.photos/seed/workflow-demo/800/600"
+                  src="/images/159-800x600.jpg"
                   alt="Workflow Demo"
                   className="w-full h-full object-cover opacity-60"
                 />
