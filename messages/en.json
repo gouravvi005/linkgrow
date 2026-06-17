@@ -1,0 +1,105 @@
+{
+    "nav": {
+        "dashboard": {
+            "dashboard": "Dashboard",
+            "ecommerce": "Ecommerce",
+            "analytic": "Analytic",
+            "project": "Project",
+            "marketing": "Marketing"
+        },
+        "concepts": "Concepts",
+        "conceptsAi": {
+            "ai": "AI",
+            "chat": "Chat",
+            "image": "Image",
+            "aiDesc": "AI tools and resources",
+            "chatDesc": "AI-powered chat systems",
+            "imageDesc": "AI image processing"
+        },
+        "conceptsCustomers": {
+            "customers": "Customer",
+            "customerList": "List",
+            "customerEdit": "Edit",
+            "customerCreate": "Create",
+            "customerDetails": "Details",
+            "customersDesc": "Customer management",
+            "customerListDesc": "List of all customers",
+            "customerEditDesc": "Edit customer info",
+            "customerCreateDesc": "Add a new customer",
+            "customerDetailsDesc": "Detailed customer info"
+        },
+        "conceptsProducts": {
+            "products": "Products",
+            "productList": "List",
+            "productEdit": "Edit",
+            "productCreate": "Create",
+            "productsDesc": "Product inventory management",
+            "productListDesc": "All products listed",
+            "productEditDesc": "Edit product details",
+            "productCreateDesc": "Add new product"
+        },
+        "conceptsProjects": {
+            "projects": "Projects",
+            "projectList": "List",
+            "projectDetails": "Details",
+            "projectTasks": "Tasks",
+            "projectIssue": "Issue",
+            "scrumBoard": "Scrum Board",
+            "projectsDesc": "Manage and track projects",
+            "scrumBoardDesc": "Manage your scrum workflow",
+            "projectListDesc": "Organize all projects",
+            "projectDetailsDesc": "Project detailed information",
+            "projectTasksDesc": "Manage project tasks",
+            "projectIssueDesc": "Resolve project issues"
+        },
+        "conceptsOrders": {
+            "orders": "Orders",
+            "orderList": "List",
+            "orderEdit": "Edit",
+            "orderDetails": "Details",
+            "orderCreate": "Create",
+            "ordersDesc": "Customer orders management",
+            "orderListDesc": "View all customer orders",
+            "orderEditDesc": "Edit order details",
+            "orderCreateDesc": "Create new order",
+            "orderDetailsDesc": "Detailed order information"
+        },
+        "conceptsAccount": {
+            "account": "Account",
+            "settings": "Settings",
+            "activityLog": "Activity log",
+            "pricing": "Pricing",
+            "rolesPermissions": "Roles & Permissions",
+            "accountDesc": "Account settings and info",
+            "settingsDesc": "Configure your settings",
+            "activityLogDesc": "View recent activities",
+            "rolesPermissionsDesc": "Manage roles & permissions",
+            "pricingDesc": "View pricing plans"
+        },
+        "conceptsHelpCenter": {
+            "helpCenter": "Help Center",
+            "supportHub": "Support Hub",
+            "article": "Article",
+            "editArticle": "Edit Article",
+            "manageArticle": "Manage Article",
+            "faq": "FAQ",
+            "helpCenterDesc": "Support and articles",
+            "supportHubDesc": "Central support hub",
+            "articleDesc": "Read support articles",
+            "editArticleDesc": "Modify article content",
+            "manageArticleDesc": "Article management"
+        },
+        "calendar": "Calendar",
+        "fileManager": "File Manager",
+        "mail": "Mail",
+        "chat": "Chat",
+        "calendarDesc": "Schedule and events",
+        "fileManagerDesc": "File management",
+        "mailDesc": "Manage your emails",
+        "chatDesc": "Chat with friends",
+        "pages": {
+            "pages": "Pages",
+            "welcome": "Welcome"
+        }
+    }
+}

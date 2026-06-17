@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+:root {
+  /* Green Theme: Professional & Vibrant */
+  --background: #ffffff;
+  --foreground: #022c22;
+  /* Dark Greenish Black */
+
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+
+  --brand: #22c55e;
+  /* Vibrant Green */
+  --brand-hover: #16a34a;
+
+  --forest: #064e3b;
+  /* Dark Green */
+  --forest-hover: #064132;
+
+  --accent: #a3e635;
+  /* Lime / Light Green */
+  --accent-foreground: #022c22;
+
+  --border: #e2e8f0;
+  --input: #f8fafc;
+  --ring: #22c55e;
+
+  /* Dynamic Multi-color Gradients */
+  --gradient-1: #22c55e;
+  --gradient-2: #3b82f6;
+  --gradient-3: #a855f7;
+  --gradient-4: #ec4899;
+
+  /* Glassmorphism Defaults */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+@theme inline {
+  /* Semantic Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Brand & Forest Specifics */
+  --color-brand: var(--brand);
+  --color-brand-foreground: #ffffff;
+
+  --color-forest: var(--forest);
+  --color-forest-foreground: #ffffff;
+
+  /* Accent Colors */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Glass Colors */
+  --color-glass: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+
+  /* Card specific colors for Bento Grid */
+  --color-card-green: #f0fdf4;
+  --color-card-dark: #ecfdf5;
+  --color-card-grey: #f8fafc;
+ 
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* Radius - Modern rounded corners */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: "Inter", var(--font-geist-sans), ui-sans-serif, system-ui;
+  --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand to-accent;
+  }
+
+  .bg-gradient-premium {
+    @apply bg-gradient-to-br from-white via-slate-50 to-emerald-50/30;
+  }
+
+  .bg-dynamic-multi {
+    background: linear-gradient(-45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-4));
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617;
+    --foreground: #f0fdf4;
+    --muted: #064e3b;
+    --muted-foreground: #86efac;
+    --border: #065f46;
+    --glass-bg: rgba(2, 44, 34, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* --- Styled Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
