@@ -1,0 +1,223 @@
+{
+    "nav": {
+        "dashboard": {
+            "dashboard": "Tablero",
+            "ecommerce": "Comercio electronico",
+            "analytic": "Analitica",
+            "project": "Proyecto",
+            "marketing": "Marketing"
+        },
+        "concepts": "Conceptos",
+        "conceptsAi": {
+            "ai": "IA",
+            "chat": "Chat",
+            "image": "Imagen",
+            "aiDesc": "Herramientas y recursos de IA",
+            "chatDesc": "Sistemas de chat impulsados por IA",
+            "imageDesc": "Procesamiento de imagenes con IA"
+        },
+        "conceptsCustomers": {
+            "customers": "Cliente",
+            "customerList": "Lista",
+            "customerEdit": "Editar",
+            "customerCreate": "Crear",
+            "customerDetails": "Detalles",
+            "customersDesc": "Gestion de clientes",
+            "customerListDesc": "Lista de todos los clientes",
+            "customerEditDesc": "Editar la informacion del cliente",
+            "customerCreateDesc": "Agregar un nuevo cliente",
+            "customerDetailsDesc": "Informacion detallada del cliente"
+        },
+        "conceptsProducts": {
+            "products": "Productos",
+            "productList": "Lista",
+            "productEdit": "Editar",
+            "productCreate": "Crear",
+            "productsDesc": "Gestion del inventario de productos",
+            "productListDesc": "Todos los productos listados",
+            "productEditDesc": "Editar detalles del producto",
+            "productCreateDesc": "Agregar un nuevo producto"
+        },
+        "conceptsProjects": {
+            "projects": "Proyectos",
+            "projectList": "Lista",
+            "projectDetails": "Detalles",
+            "projectTasks": "Tareas",
+            "projectIssue": "Problema",
+            "scrumBoard": "Tablero Scrum",
+            "projectsDesc": "Gestionar y rastrear proyectos",
+            "scrumBoardDesc": "Gestiona tu flujo de trabajo Scrum",
+            "projectListDesc": "Organiza todos los proyectos",
+            "projectDetailsDesc": "Informacion detallada del proyecto",
+            "projectTasksDesc": "Gestionar las tareas del proyecto",
+            "projectIssueDesc": "Resolver problemas del proyecto"
+        },
+        "conceptsOrders": {
+            "orders": "Ordenes",
+            "orderList": "Lista",
+            "orderEdit": "Editar",
+            "orderDetails": "Detalles",
+            "orderCreate": "Crear",
+            "ordersDesc": "Gestion de pedidos de clientes",
+            "orderListDesc": "Ver todos los pedidos de clientes",
+            "orderEditDesc": "Editar detalles del pedido",
+            "orderCreateDesc": "Crear un nuevo pedido",
+            "orderDetailsDesc": "Informacion detallada del pedido"
+        },
+        "conceptsAccount": {
+            "account": "Cuenta",
+            "settings": "Configuracion",
+            "activityLog": "Registro de actividad",
+            "pricing": "Precios",
+            "rolesPermissions": "Roles y permisos",
+            "accountDesc": "Configuracion e informacion de la cuenta",
+            "settingsDesc": "Configura tus ajustes",
+            "activityLogDesc": "Ver actividades recientes",
+            "rolesPermissionsDesc": "Gestiona roles y permisos",
+            "pricingDesc": "Ver planes de precios"
+        },
+        "conceptsHelpCenter": {
+            "helpCenter": "Centro de ayuda",
+            "supportHub": "Centro de soporte",
+            "article": "Articulo",
+            "editArticle": "Editar articulo",
+            "manageArticle": "Gestionar articulo",
+            "faq": "FAQ",
+            "helpCenterDesc": "Soporte y articulos",
+            "supportHubDesc": "Centro centralizado de soporte",
+            "articleDesc": "Leer articulos de soporte",
+            "editArticleDesc": "Modificar el contenido del articulo",
+            "manageArticleDesc": "Gestion de articulos"
+        },
+        "calendar": "Calendario",
+        "fileManager": "Gestor de archivos",
+        "mail": "Correo",
+        "chat": "Chat",
+        "uiComponents": "Componentes de UI",
+        "calendarDesc": "Programacion y eventos",
+        "fileManagerDesc": "Gestion de archivos",
+        "mailDesc": "Gestiona tus correos",
+        "chatDesc": "Chatea con amigos",
+        "pages": {
+            "pages": "Paginas",
+            "welcome": "Bienvenido",
+            "accessDenied": "Acceso Denegado"
+        },
+        "overview": {
+            "title": "Resumen",
+            "dashboard": "Tablero",
+            "analytics": "Analitica",
+            "notifications": "Notificaciones",
+            "growthInsights": "Perspectivas de crecimiento"
+        },
+        "creator": "Creador",
+        "miniSite": {
+            "title": "Mini Sitio",
+            "content": "Contenido",
+            "header": "Encabezado",
+            "socialLinks": "Enlaces Sociales",
+            "theme": "Tema"
+        },
+        "brandDeals": "Campañas de Marca",
+        "emailMarketing": {
+            "title": "Email Marketing",
+            "contacts": "Contactos",
+            "segments": "Segmentos",
+            "campaigns": "Campañas",
+            "templates": "Plantillas"
+        },
+        "amplify": "Amplificar",
+        "referFriend": "Recomendar a un Amigo",
+        "automation": {
+            "title": "Automatización",
+            "aiAssistant": "Asistente IA",
+            "whatsapp": "Automatización de WhatsApp",
+            "replies": "Respuestas automáticas",
+            "comments": "Comentarios automáticos",
+            "scheduler": "Programador de contenido",
+            "broadcast": "Campañas de difusión"
+        },
+        "socialAccounts": {
+            "title": "Cuentas sociales",
+            "instagram": "Instagram",
+            "youtube": "YouTube",
+            "linkedin": "LinkedIn",
+            "twitter": "Twitter (X)",
+            "tiktok": "TikTok",
+            "facebook": "Facebook",
+            "connected": "Cuentas conectadas"
+        },
+        "aiStudio": {
+            "title": "Estudio de IA",
+            "captions": "Generador de subtitulos",
+            "ideas": "Ideas de contenido",
+            "hashtags": "Generador de hashtags",
+            "scripts": "Generador de guiones",
+            "image": "Generador de imagenes IA",
+            "planner": "Planificador de contenido"
+        },
+        "monetization": {
+            "title": "Monetización",
+            "products": "Productos digitales",
+            "courses": "Cursos",
+            "payments": "Pagos",
+            "affiliates": "Enlaces de afiliados",
+            "earnings": "Ganancias",
+            "coupons": "Cupones"
+        },
+        "audience": {
+            "title": "Audiencia",
+            "contacts": "Contactos",
+            "emails": "Recopilacion de correos",
+            "forms": "Formularios",
+            "segments": "Segmentos",
+            "messages": "Mensajes"
+        },
+        "analytics": {
+            "title": "Analítica",
+            "links": "Analitica de enlaces",
+            "traffic": "Fuentes de trafico",
+            "audience": "Perspectivas de audiencia",
+            "devices": "Analitica de dispositivos",
+            "countries": "Paises",
+            "reports": "Informes de rendimiento"
+        },
+        "integrations": {
+            "title": "Integraciones",
+            "list": "Integraciones",
+            "api": "API",
+            "webhooks": "Webhooks",
+            "email": "Servicios de correo",
+            "googleDrive": "Google Drive",
+            "googleCalendar": "Google Calendar"
+        },
+        "settings": {
+            "title": "Configuración",
+            "profile": "Perfil",
+            "workspace": "Espacio de trabajo",
+            "appearance": "Apariencia",
+            "security": "Seguridad",
+            "billing": "Facturación y Pagos",
+            "notifications": "Notificaciones",
+            "domain": "Dominio personalizado",
+            "miniSite": "Mini Sitio",
+            "emailMarketing": "Email Marketing",
+            "credits": "Créditos",
+            "teamMembers": "Miembros del Equipo",
+            "integrations": "Integraciones",
+            "advanced": "Configuraciones Avanzadas"
+        },
+        "support": {
+            "title": "Soporte",
+            "documentation": "Documentacion",
+            "helpCenter": "Centro de ayuda",
+            "liveChat": "Chat en vivo",
+            "featureRequests": "Solicitudes de funciones",
+            "reportBug": "Reportar error"
+        },
+        "account": {
+            "title": "Cuenta",
+            "logout": "Cerrar sesion"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+'use server'
+
+import { cookies } from 'next/headers'
+import appConfig from '@/configs/app.config'
+import { COOKIES_KEY } from '@/constants/app.constant'
+
+const COOKIE_NAME = COOKIES_KEY.LOCALE
+
+export async function getLocale() {
+    const cookieStore = await cookies()
+    const locale = cookieStore.get(COOKIE_NAME)?.value || appConfig.locale
+    if (locale !== 'en' && locale !== 'es') {
+        return 'en'
+    }
+    return locale
+}
+
+export async function setLocale(locale: string) {
+    const cookieStore = await cookies()
+    cookieStore.set(COOKIE_NAME, locale)
+}
