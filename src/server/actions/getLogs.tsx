@@ -1,31 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { logData } from '@/mock/data/logData'
-
 const getLogs = async (activityIndex: number = 1, filter?: string[]) => {
-    let loadable = true
-    const maxGetItem = 3
-    const count = (activityIndex - 1) * maxGetItem
-    let logs = logData
-    if (count >= logs.length) {
-        loadable = false
-    }
-    logs = logs.slice(count, activityIndex * maxGetItem)
-
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const params = new URLSearchParams()
+    params.append('activityIndex', activityIndex.toString())
     if (filter) {
-        logs = structuredClone(logs).map((log) => {
-            log.events = log.events.filter((event: any) =>
-                filter.includes(event.type),
-            ) as any
-            return log
-        }) as any
+        if (Array.isArray(filter)) {
+            filter.forEach(f => params.append('filter', f))
+        } else {
+            params.append('filter', filter)
+        }
     }
-
-    const response = {
-        data: logs,
-        loadable,
-    }
-
-    return response
+    const response = await fetch(`${apiURL}/api/v1/logs?${params.toString()}`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getLogs
+

@@ -1,14 +1,7 @@
-import { usersData } from '@/mock/data/usersData'
-
 const getSrcumboardMembers = async () => {
-    const borderMembersId = ['3', '2', '4', '7', '1', '10', '9']
-    const participantMembers = usersData.filter((user) =>
-        borderMembersId.includes(user.id),
-    )
-    return {
-        participantMembers,
-        allMembers: usersData,
-    }
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/projects/scrum-board/members`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getSrcumboardMembers
+

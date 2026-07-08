@@ -1,3 +1,5 @@
+'use client'
+
 import ForgotPasswordClient from './_components/ForgotPasswordClient'
 
 const Page = () => {

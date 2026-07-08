@@ -1,23 +1,8 @@
-import { mailData } from '@/mock/data/mailData'
-
-const getMailList = async (_queryParams: {
-    [key: string]: string | string[] | undefined
-}) => {
-    const queryParams = _queryParams
-
-    const { category, label } = queryParams
-
-    let response = mailData
-
-    if (category && category !== 'inbox') {
-        response = mailData.filter((mail) => mail.group === category)
-    }
-
-    if (label) {
-        response = mailData.filter((mail) => mail.label === label)
-    }
-
-    return response
+const getMailList = async (queryParams: { [key: string]: any }) => {
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const queryString = new URLSearchParams(queryParams as any).toString()
+    const response = await fetch(`${apiURL}/api/v1/mail/list?${queryString}`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getMailList
+

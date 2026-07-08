@@ -1,11 +1,8 @@
-import { issueData } from '@/mock/data/projectsData'
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const getTask = (_queryParams: {
-    [key: string]: string | string[] | undefined
-}) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return issueData as any
+const getTask = async (queryParams: { [key: string]: any }) => {
+    const { id } = queryParams
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/projects/tasks/${id}`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getTask
+

@@ -1,8 +1,7 @@
-import { projectData } from '@/mock/data/dashboardData'
-
 const getProjectDashboard = async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return projectData as any
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/dashboards/project`)
+    const result = await response.json()
+    return result?.data ?? result
 }
-
 export default getProjectDashboard

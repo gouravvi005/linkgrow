@@ -1,3 +1,5 @@
+'use client'
+
 import OtpVerificationClient from './_components/OtpVerificationClient'
 
 const Page = () => {

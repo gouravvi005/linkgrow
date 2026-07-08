@@ -21,6 +21,10 @@ const dashboardsRoute: Routes = {
         key: 'otpVerification',
         authority: [],
     },
+    '/create-profile': {
+        key: 'createProfile',
+        authority: [],
+    },
 }
 
 export default dashboardsRoute

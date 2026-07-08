@@ -25,6 +25,10 @@ export type SignUpCredential = {
     password: string
 }
 
+export type SaveUsernameCredential = {
+    username: string
+}
+
 export type ForgotPassword = {
     email: string
 }

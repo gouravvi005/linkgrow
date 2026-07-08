@@ -1,13 +1,7 @@
-import { articleListData, articleDetailData } from '@/mock/data/helpCenterData'
-
 const getArticle = async (id: string) => {
-    const article = articleListData.find((article) => article.id === id)
-
-    if (!article) {
-        return null
-    }
-
-    return { ...article, ...articleDetailData }
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/helps/articles/${id}`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getArticle
+

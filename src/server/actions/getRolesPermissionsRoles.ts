@@ -1,16 +1,7 @@
-import { roleGroupsData } from '@/mock/data/accountsData'
-import { userDetailData } from '@/mock/data/usersData'
-
 const getRolesPermissionsRoles = async () => {
-    const users = userDetailData
-
-    const roleGroup = roleGroupsData.map((group) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        group.users = users.filter((user) => user.role === group.id) as any
-        return group
-    })
-
-    return roleGroup
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/roles/roles`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getRolesPermissionsRoles
+

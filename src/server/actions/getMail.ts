@@ -1,19 +1,8 @@
-import { mailData } from '@/mock/data/mailData'
-
-const getMail = async (_queryParams: {
-    [key: string]: string | string[] | undefined
-}) => {
-    const queryParams = _queryParams
-
+const getMail = async (queryParams: { [key: string]: any }) => {
     const { mail: id } = queryParams
-
-    const mail = mailData.find((mail) => mail.id === id)
-
-    if (!mail) {
-        return {}
-    }
-
-    return mail
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/mail?mail=${id}`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getMail
+

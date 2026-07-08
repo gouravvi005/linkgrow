@@ -1,3 +1,5 @@
+'use client'
+
 import ResetPasswordClient from './_components/ResetPasswordClient'
 
 const Page = () => {

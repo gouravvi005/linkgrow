@@ -36,6 +36,12 @@ export default {
         }),
     ],
     callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.sub = user.id
+            }
+            return token
+        },
         async session(payload) {
             /** apply extra user attributes here, for example, we add 'authority' & 'id' in this section */
             return {

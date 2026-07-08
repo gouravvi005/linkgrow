@@ -22,11 +22,11 @@ const dashboardsNavigationConfig: NavigationTree[] = [
         },
         subMenu: [
             {
-                key: 'dashboard.ecommerce',
+                key: 'dashboard',
                 path: `${DASHBOARDS_PREFIX_PATH}/ecommerce`,
                 title: 'Ecommerce',
-                translateKey: 'nav.dashboard.ecommerce',
-                icon: 'dashboardEcommerce',
+                translateKey: 'nav.dashboard.dashboard',
+                icon: 'dashboardIcon',
                 type: NAV_ITEM_TYPE_ITEM,
                 authority: [ADMIN, USER],
                 subMenu: [],

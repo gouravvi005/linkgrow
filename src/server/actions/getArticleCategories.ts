@@ -1,10 +1,7 @@
-import { articleListData, categoriesData } from '@/mock/data/helpCenterData'
-
 const getArticleCategories = async () => {
-    return {
-        categories: categoriesData,
-        popularArticles: articleListData.filter((article) => article.starred),
-    }
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/helps/articles/categories`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getArticleCategories
+

@@ -25,7 +25,7 @@ const demos = [
         mdPath: mdPath,
         title: 'Variant',
         desc: `There's few variant of appearance of the button, you can set the <code>variant</code> prop
-		value to <code>default</code>, <code>twoTone</code>, <code>solid</code>, or <code>plain</code>.`,
+		value to <code>default</code>, <code>solid</code>, or <code>plain</code>.`,
         component: <Variant />,
     },
     {

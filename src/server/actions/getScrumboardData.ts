@@ -1,8 +1,7 @@
-import { scrumboardData } from '@/mock/data/projectsData'
-
 const getScrumboardData = async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return scrumboardData as any
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/projects/scrum-board`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getScrumboardData
+

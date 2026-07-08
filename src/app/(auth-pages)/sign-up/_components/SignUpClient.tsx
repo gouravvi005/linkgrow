@@ -66,15 +66,23 @@ const SignUpClient = () => {
                 email: values.email,
                 password: values.password,
             })
+
+            // Store credentials temporarily so create-profile can auto sign-in the user
+            sessionStorage.setItem('_signup_email', values.email)
+            sessionStorage.setItem('_signup_password', values.password)
             
             toast.push(
                 <Notification title="Account created!" type="success">
-                    You can now sign in from our sign in page
+                    Now let&apos;s set up your profile handle.
                 </Notification>,
             )
-            router.push('/sign-in')
-        } catch (error) {
-            setMessage(error as string)
+            router.push('/create-profile')
+        } catch (error: any) {
+            const msg =
+                error?.response?.data?.message ||
+                error?.message ||
+                'Something went wrong. Please try again.'
+            setMessage(msg)
         } finally {
             setSubmitting(false)
         }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Icon } from '@iconify/react'
 import { PricingCard } from '@/components/landing/linkgrow/PricingCard'
@@ -10,20 +10,36 @@ import { cn } from '@/lib/utils'
 import { FAQ } from '@/components/landing/home/FAQ'
 import { CTA } from '@/components/landing/home/CTA'
 
-import { pricingPlans } from '@/mock/landing-mock'
-
-const comparisonFeatures = [
-  { feature: 'Bio Pages', free: '1', starter: '5', pro: 'Unlimited', business: 'Unlimited' },
-  { feature: 'WhatsApp Buttons', free: 'Basic', starter: 'Advanced', pro: 'Smart', business: 'Smart' },
-  { feature: 'Custom Branding', free: '✗', starter: '✓', pro: '✓', business: '✓' },
-  { feature: 'Lead Forms', free: '✗', starter: '✗', pro: '✓', business: '✓' },
-  { feature: 'Analytics', free: 'Basic', starter: 'Basic', pro: 'Advanced', business: 'Advanced' },
-  { feature: 'Custom Domain', free: '✗', starter: '✓', pro: '✓', business: '✓' },
-  { feature: 'Team Seats', free: '✗', starter: '✗', pro: '✗', business: '5' },
-]
+import { pricingPlans, detailedFeatureComparison } from '@/mock/landing-mock'
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(false)
+  const [expandedFeatures, setExpandedFeatures] = useState<Record<string, boolean>>({})
+
+  const freePlan = pricingPlans.find(p => p.name === 'Free')
+  const starterPlan = pricingPlans.find(p => p.name === 'Starter')
+  const proPlan = pricingPlans.find(p => p.name === 'Pro')
+  const premiumPlan = pricingPlans.find(p => p.name === 'Premium')
+
+  const toggleFeature = (name: string) => {
+    setExpandedFeatures(prev => ({ ...prev, [name]: !prev[name] }))
+  }
+
+  const scrollToCategory = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) {
+      const offset = 100 // Sticky header offset
+      const bodyRect = document.body.getBoundingClientRect().top
+      const elementRect = el.getBoundingClientRect().top
+      const elementPosition = elementRect - bodyRect
+      const offsetPosition = elementPosition - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   return (
     <>
@@ -90,8 +106,10 @@ export default function PricingPage() {
                     initial={false}
                     animate={{
                       x: isAnnual ? '100%' : '0%',
-                      left: isAnnual ? '-2px' : '6px',
-                      width: 'calc(50% - 4px)'
+                    }}
+                    style={{
+                      left: '6px',
+                      width: 'calc(50% - 6px)'
                     }}
                     transition={{ type: "spring", stiffness: 400, damping: 40 }}
                   />
@@ -108,7 +126,7 @@ export default function PricingPage() {
           <PricingCard
             key={plan.name}
             {...plan}
-            price={isAnnual ? plan.annualPrice : plan.monthlyPrice}
+            isAnnual={isAnnual}
             index={i}
           />
         ))}
@@ -163,33 +181,118 @@ export default function PricingPage() {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-32 bg-white">
+      <section className="py-24 bg-white border-t border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-black tracking-tight text-foreground sm:text-6xl mb-6">Compare all features</h2>
-            <p className="text-lg text-slate-500 font-medium">Find the perfect plan for your unique workflow.</p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-5xl mb-4">All Features</h2>
+            <p className="text-lg text-slate-500 font-medium">Compare detailed features across all plans.</p>
           </div>
 
-          <div className="overflow-x-auto rounded-[3rem] border border-slate-100 shadow-2xl">
-            <table className="w-full text-left border-collapse bg-white">
-              <thead>
-                <tr className="bg-slate-50">
-                  <th className="p-8 text-sm font-black text-slate-400 uppercase tracking-widest">Features</th>
-                  <th className="p-8 text-center text-sm font-black text-foreground uppercase tracking-widest">Free</th>
-                  <th className="p-8 text-center text-sm font-black text-foreground uppercase tracking-widest">Starter</th>
-                  <th className="p-8 text-center text-sm font-black text-brand uppercase tracking-widest">Pro</th>
-                  <th className="p-8 text-center text-sm font-black text-foreground uppercase tracking-widest">Business</th>
+          {/* Sticky Category Anchors Bar */}
+          <div className="sticky top-20 bg-white/95 backdrop-blur-md z-30 py-4 border-y border-slate-100 mb-8 overflow-x-auto scrollbar-none">
+            <div className="flex gap-2 min-w-max px-2">
+              {detailedFeatureComparison.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => scrollToCategory(cat.id)}
+                  className="px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-slate-50 hover:bg-brand hover:text-white border border-slate-200/60 transition-all"
+                >
+                  {cat.category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Main Features Accordion Grid */}
+          <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xl">
+            <table className="w-full text-left border-collapse min-w-[800px]">
+              <thead className="sticky top-[148px] bg-slate-50/95 backdrop-blur-sm z-20 border-b border-slate-200 shadow-sm">
+                <tr>
+                  <th className="p-6 text-sm font-black text-slate-400 uppercase tracking-widest w-1/3">Features</th>
+                  <th className="p-6 text-center border-l border-slate-200/60">
+                    <div className="text-sm font-black text-slate-700 uppercase tracking-widest">{freePlan?.name}</div>
+                    <div className="text-[10px] text-slate-400 font-bold mt-1">₹{isAnnual ? freePlan?.annualPrice : freePlan?.monthlyPrice}</div>
+                  </th>
+                  <th className="p-6 text-center border-l border-slate-200/60">
+                    <div className="text-sm font-black text-slate-700 uppercase tracking-widest">{starterPlan?.name}</div>
+                    <div className="text-[10px] text-slate-500 font-bold mt-1">₹{isAnnual ? starterPlan?.annualPrice : starterPlan?.monthlyPrice}/mo</div>
+                  </th>
+                  <th className="p-6 text-center border-l border-slate-200/60 bg-brand/5">
+                    <div className="text-sm font-black text-brand uppercase tracking-widest">{proPlan?.name}</div>
+                    <div className="text-[10px] text-brand/80 font-bold mt-1">₹{isAnnual ? proPlan?.annualPrice : proPlan?.monthlyPrice}/mo</div>
+                  </th>
+                  <th className="p-6 text-center border-l border-slate-200/60">
+                    <div className="text-sm font-black text-slate-700 uppercase tracking-widest">{premiumPlan?.name}</div>
+                    <div className="text-[10px] text-slate-500 font-bold mt-1">₹{isAnnual ? premiumPlan?.annualPrice : premiumPlan?.monthlyPrice}/mo</div>
+                  </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-50">
-                {comparisonFeatures.map((row) => (
-                  <tr key={row.feature} className="hover:bg-slate-50/50 transition-colors">
-                    <td className="p-8 text-base font-bold text-foreground">{row.feature}</td>
-                    <td className="p-8 text-center text-slate-500 font-bold">{row.free}</td>
-                    <td className="p-8 text-center text-slate-500 font-bold">{row.starter}</td>
-                    <td className="p-8 text-center text-brand font-black bg-brand/5">{row.pro}</td>
-                    <td className="p-8 text-center text-slate-500 font-bold">{row.business}</td>
-                  </tr>
+              <tbody>
+                {detailedFeatureComparison.map((categoryGroup) => (
+                  <React.Fragment key={categoryGroup.id}>
+                    {/* Category Header Row */}
+                    <tr id={categoryGroup.id} className="bg-slate-100/60 border-t border-slate-200 scroll-mt-40">
+                      <td colSpan={5} className="px-6 py-4 text-xs font-black text-brand tracking-widest uppercase">
+                        {categoryGroup.category}
+                      </td>
+                    </tr>
+
+                    {/* Features Rows */}
+                    {categoryGroup.features.map((feature, fIdx) => {
+                      const isExpanded = !!expandedFeatures[feature.name];
+                      return (
+                        <React.Fragment key={fIdx}>
+                          <tr className="hover:bg-slate-50/50 transition-colors group border-t border-slate-100">
+                            {/* Feature Title Row with expand arrow */}
+                            <td className="px-6 py-4 sticky left-0 bg-white group-hover:bg-slate-50/50 transition-colors">
+                              <button
+                                onClick={() => toggleFeature(feature.name)}
+                                className="flex items-center gap-3 text-sm font-bold text-slate-700 hover:text-brand transition-colors text-left w-full"
+                              >
+                                <div className="h-6 w-6 rounded-lg bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0">
+                                  <Icon
+                                    icon="lucide:chevron-down"
+                                    className={cn("h-4 w-4 text-slate-400 transition-transform duration-300", isExpanded && "rotate-180")}
+                                  />
+                                </div>
+                                {feature.name}
+                              </button>
+                            </td>
+
+                            {/* Plan Availability Columns */}
+                            <td className="px-6 py-4 text-center border-l border-slate-150 text-xs font-bold text-slate-500">
+                              {feature.free === '✓' ? <Icon icon="lucide:check" className="h-5 w-5 mx-auto text-brand" /> : feature.free === '-' ? <Icon icon="lucide:x" className="h-4 w-4 mx-auto text-slate-300" /> : feature.free}
+                            </td>
+                            <td className="px-6 py-4 text-center border-l border-slate-150 text-xs font-bold text-slate-700">
+                              {feature.starter === '✓' ? <Icon icon="lucide:check" className="h-5 w-5 mx-auto text-brand" /> : feature.starter === '-' ? <Icon icon="lucide:x" className="h-4 w-4 mx-auto text-slate-300" /> : feature.starter}
+                            </td>
+                            <td className="px-6 py-4 text-center border-l border-slate-200/60 bg-brand/[0.02] text-xs font-bold text-brand">
+                              {feature.pro === '✓' ? <Icon icon="lucide:check" className="h-5 w-5 mx-auto text-brand" /> : feature.pro === '-' ? <Icon icon="lucide:x" className="h-4 w-4 mx-auto text-slate-300" /> : feature.pro}
+                            </td>
+                            <td className="px-6 py-4 text-center border-l border-slate-150 text-xs font-bold text-slate-700">
+                              {feature.premium === '✓' ? <Icon icon="lucide:check" className="h-5 w-5 mx-auto text-brand" /> : feature.premium === '-' ? <Icon icon="lucide:x" className="h-4 w-4 mx-auto text-slate-300" /> : feature.premium}
+                            </td>
+                          </tr>
+
+                          {/* Accordion Expand Description Row */}
+                          {isExpanded && (
+                            <tr className="bg-slate-50/50">
+                              <td colSpan={5} className="px-6 py-4 border-l-4 border-brand bg-slate-50/40">
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: 'auto', opacity: 1 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="text-xs font-medium text-slate-500 max-w-4xl leading-relaxed"
+                                >
+                                  {feature.description}
+                                </motion.div>
+                              </td>
+                            </tr>
+                          )}
+                        </React.Fragment>
+                      )
+                    })}
+                  </React.Fragment>
                 ))}
               </tbody>
             </table>

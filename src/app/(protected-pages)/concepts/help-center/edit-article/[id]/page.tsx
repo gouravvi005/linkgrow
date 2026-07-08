@@ -24,7 +24,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
                 <div className="flex flex-col gap-2">
                     <EditArticleHeader
                         {...data}
-                        tags={data.tags.map((tag) => ({
+                        tags={data.tags.map((tag: any) => ({
                             ...tag,
                             id: tag.id.toString(),
                         }))}

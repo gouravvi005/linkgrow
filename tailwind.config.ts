@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
 	content: [
@@ -9,7 +10,7 @@ const config: Config = {
 		"./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
-	darkMode: 'class',
+	darkMode: 'media',
 	theme: {
 		fontFamily: {
 			sans: [
@@ -120,8 +121,7 @@ const config: Config = {
 		},
 	},
 	plugins: [
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require('@tailwindcss/typography'),
+        typography,
 	],
 };
 export default config;

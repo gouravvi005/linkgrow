@@ -279,6 +279,39 @@ const conceptsRoute: Routes = {
             pageContainerType: 'contained',
         },
     },
+    // Creator module catch-all routes
+    '/creator/[...slug]': {
+        key: 'creator.catchAll',
+        authority: [ADMIN, USER],
+        dynamicRoute: true,
+        meta: {
+            pageContainerType: 'contained',
+        },
+    },
+    // Logout page
+    '/logout': {
+        key: 'account.logout',
+        authority: [ADMIN, USER],
+        meta: {
+            pageContainerType: 'gutterless',
+        },
+    },
+    // Users module
+    '/concepts/users/user-list': {
+        key: 'concepts.users.userList',
+        authority: [ADMIN, USER],
+        meta: {
+            pageContainerType: 'contained',
+        },
+    },
+    '/concepts/users/user-details/[slug]': {
+        key: 'concepts.users.userDetails',
+        authority: [ADMIN, USER],
+        meta: {
+            pageContainerType: 'contained',
+        },
+        dynamicRoute: true,
+    },
 }
 
 export default conceptsRoute

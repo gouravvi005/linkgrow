@@ -1,3 +1,5 @@
+'use client'
+
 import useTheme from '@/utils/hooks/useTheme'
 import { THEME_ENUM } from '@/constants/theme.constant'
 import type { DetailedHTMLProps, ImgHTMLAttributes } from 'react'

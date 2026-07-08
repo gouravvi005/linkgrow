@@ -1,20 +1,8 @@
-import { userDetailData } from '@/mock/data/usersData'
-
-const getCustomer = async (_queryParams: {
-    [key: string]: string | string[] | undefined
-}) => {
-    const queryParams = _queryParams
-
+const getCustomer = async (queryParams: { [key: string]: any }) => {
     const { id } = queryParams
-
-    const user = userDetailData.find((user) => user.id === id)
-
-    if (!user) {
-        return {}
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return user as any
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/customers/${id}`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getCustomer
+

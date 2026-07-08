@@ -1,3 +1,5 @@
+'use client'
+
 import SignInClient from './_components/SignInClient'
 
 const Page = () => {

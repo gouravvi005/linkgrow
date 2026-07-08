@@ -69,11 +69,11 @@
             "settings": "Settings",
             "activityLog": "Activity log",
             "pricing": "Pricing",
-            "rolesPermissions": "Roles & Permissions",
+            "rolesPermissions": "Roles \u0026 Permissions",
             "accountDesc": "Account settings and info",
             "settingsDesc": "Configure your settings",
             "activityLogDesc": "View recent activities",
-            "rolesPermissionsDesc": "Manage roles & permissions",
+            "rolesPermissionsDesc": "Manage roles \u0026 permissions",
             "pricingDesc": "View pricing plans"
         },
         "conceptsHelpCenter": {
@@ -100,6 +100,122 @@
         "pages": {
             "pages": "Pages",
             "welcome": "Welcome"
+        },
+        "overview": {
+            "title": "Overview",
+            "dashboard": "Dashboard",
+            "analytics": "Analytics",
+            "notifications": "Notifications",
+            "growthInsights": "Growth Insights"
+        },
+        "creator": "Creator",
+        "miniSite": {
+            "title": "Mini Site",
+            "content": "Content",
+            "header": "Header",
+            "socialLinks": "Social Links",
+            "theme": "Theme"
+        },
+        "brandDeals": "Brand Deals",
+        "emailMarketing": {
+            "title": "Email Marketing",
+            "contacts": "Contacts",
+            "segments": "Segments",
+            "campaigns": "Campaigns",
+            "templates": "Templates"
+        },
+        "amplify": "Amplify",
+        "referFriend": "Refer a Friend",
+        "automation": {
+            "title": "Automation",
+            "aiAssistant": "AI Assistant",
+            "whatsapp": "WhatsApp Automation",
+            "replies": "Auto Replies",
+            "comments": "Auto Comments",
+            "scheduler": "Content Scheduler",
+            "broadcast": "Broadcast Campaigns"
+        },
+        "socialAccounts": {
+            "title": "Social Accounts",
+            "instagram": "Instagram",
+            "youtube": "YouTube",
+            "linkedin": "LinkedIn",
+            "twitter": "Twitter (X)",
+            "tiktok": "TikTok",
+            "facebook": "Facebook",
+            "connected": "Connected Accounts"
+        },
+        "aiStudio": {
+            "title": "AI Studio",
+            "captions": "Caption Generator",
+            "ideas": "Content Ideas",
+            "hashtags": "Hashtag Generator",
+            "scripts": "Script Generator",
+            "image": "AI Image Generator",
+            "planner": "Content Planner"
+        },
+        "monetization": {
+            "title": "Monetization",
+            "products": "Digital Products",
+            "courses": "Courses",
+            "payments": "Payments",
+            "affiliates": "Affiliate Links",
+            "earnings": "Earnings",
+            "coupons": "Coupons"
+        },
+        "audience": {
+            "title": "Audience",
+            "contacts": "Contacts",
+            "emails": "Email Collection",
+            "forms": "Forms",
+            "segments": "Segments",
+            "messages": "Messages"
+        },
+        "analytics": {
+            "title": "Analytics",
+            "links": "Link Analytics",
+            "traffic": "Traffic Sources",
+            "audience": "Audience Insights",
+            "devices": "Device Analytics",
+            "countries": "Countries",
+            "reports": "Performance Reports"
+        },
+        "integrations": {
+            "title": "Integrations",
+            "list": "Integrations",
+            "api": "API",
+            "webhooks": "Webhooks",
+            "email": "Email Services",
+            "googleDrive": "Google Drive",
+            "googleCalendar": "Google Calendar"
+        },
+        "settings": {
+            "title": "Settings",
+            "profile": "Profile",
+            "workspace": "Workspace",
+            "appearance": "Appearance",
+            "security": "Security",
+            "billing": "Billing & Payments",
+            "notifications": "Notifications",
+            "domain": "Custom Domain",
+            "miniSite": "Mini Site",
+            "emailMarketing": "Email Marketing",
+            "credits": "Credits",
+            "teamMembers": "Team Members",
+            "integrations": "Integrations",
+            "advanced": "Advanced Settings"
+        },
+        "support": {
+            "title": "Support",
+            "documentation": "Documentation",
+            "helpCenter": "Help Center",
+            "liveChat": "Live Chat",
+            "featureRequests": "Feature Requests",
+            "reportBug": "Report Bug"
+        },
+        "account": {
+            "title": "Account",
+            "logout": "Logout"
         }
     }
 }

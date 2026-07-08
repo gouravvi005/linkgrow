@@ -1,8 +1,7 @@
-import { chatList } from '@/mock/data/chatData'
-
 const getChatList = async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return chatList as any
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+    const response = await fetch(`${apiURL}/api/v1/chat/list`)
+    const result = await response.json(); return result?.data ?? result
 }
-
 export default getChatList
+

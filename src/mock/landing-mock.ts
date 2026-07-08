@@ -153,59 +153,196 @@ export const siteConfig = {
 export const pricingPlans = [
   {
     name: 'Free',
-    monthlyPrice: '₹0',
-    annualPrice: '₹0',
-    description: 'Perfect for getting started',
-    features: [
-      '1 bio page',
-      'Basic themes',
-      'Unlimited links',
-      'Standard WhatsApp button',
-      'Basic analytics'
+    monthlyPrice: 0,
+    annualPrice: 0,
+    description: 'Launch your digital presence with a free bio page.',
+    buttonText: 'Get started',
+    featureGroups: [
+      {
+        title: 'Core Features:',
+        items: [
+          { title: 'Unlimited Navigation Links' },
+          { title: 'Rich Social & Video Embeds' },
+          { title: 'Core Audience Analytics' },
+          { title: 'SEO-Ready Layouts' },
+          { title: 'Dynamic Scan Code' }
+        ]
+      },
+      {
+        title: 'Monetization:',
+        items: [
+          { title: 'Sponsored Spaces & Shop Links', description: 'Set up a custom storefront and showcase sponsors on your page.' },
+          { title: 'Digital Content Sales', description: 'Distribute and sell ebooks, templates, and downloadable content.' }
+        ]
+      }
     ]
   },
   {
     name: 'Starter',
-    monthlyPrice: '₹149',
-    annualPrice: '₹119',
-    description: 'For individuals and creators',
-    features: [
-      '5 bio pages',
-      'Premium themes',
-      'Custom colors & fonts',
-      'Smart lead forms',
-      'WhatsApp automation',
-      'Meta Pixel integration'
+    monthlyPrice: 360,
+    annualPrice: 220,
+    description: 'Grow your reach with advanced templates and audience tools.',
+    buttonText: 'Get started',
+    featureGroups: [
+      {
+        title: 'Everything in Free, plus:',
+        subtitle: 'Page customization',
+        items: [
+          { title: 'Personalized Color Schemes', description: 'Modify backgrounds and palette presets to represent your style.' },
+          { title: 'Visitor Lead Capturing', description: 'Acquire and export emails and phone lists from your page.' },
+          { title: 'Priority Redirects', description: 'Set temporary traffic forwarding for active promotions.' }
+        ]
+      },
+      {
+        subtitle: 'Monetization:',
+        items: [
+          { title: 'Optimized Checkout Fees', description: 'Sell digital assets directly with a competitive transaction cost (9%).' }
+        ]
+      }
     ]
   },
   {
     name: 'Pro',
-    monthlyPrice: '₹399',
-    annualPrice: '₹319',
-    description: 'For growing businesses',
-    highlighted: true,
-    features: [
-      'Everything in Starter',
-      'Unlimited bio pages',
-      'Custom domains',
-      'A/B testing',
-      'Advanced analytics',
-      'Email integrations',
-      'Priority support'
+    monthlyPrice: 650,
+    annualPrice: 440,
+    description: 'Monetize like a professional with automated marketing and analytics.',
+    buttonText: 'Try free for 7 days',
+    recommended: true,
+    featureGroups: [
+      {
+        title: 'Everything in Starter, plus:',
+        subtitle: 'Advanced Bio Link',
+        items: [
+          { title: 'White-label & Visual Branding', description: 'Upload brand logos, custom favicon and style layouts.' },
+          { title: 'Attention Grabbing Animation', description: 'Apply priority styling and pulsing indicators on main calls to action.' },
+          { title: 'Advanced Traffic Reports', description: 'Access deeper insights on click performance, location and device metrics.' }
+        ]
+      },
+      {
+        subtitle: 'Marketing Automation',
+        badge: 'NEW',
+        items: [
+          { title: 'Auto-Responder DM System', description: 'Activate instantaneous messaging loops for IG comments and direct messages.' },
+          { title: 'Smart WhatsApp Conversions', description: 'Automatically direct followers into interactive chat loops.' },
+          { title: 'Custom URL Builder', description: 'Create custom link aliases with automated campaign tracking parameters.' },
+          { title: 'Marketing Platform Sync', description: 'Instantly route acquired lead details to Mailchimp, Klaviyo, Sheets, etc.' }
+        ]
+      },
+      {
+        subtitle: 'Monetization:',
+        items: [
+          { title: 'Pro Checkout Tier', description: 'Process your digital product transactions with a low 5% service fee.' }
+        ]
+      }
     ]
   },
   {
-    name: 'Business',
-    monthlyPrice: '₹999',
-    annualPrice: '₹799',
-    description: 'For teams and agencies',
+    name: 'Premium',
+    monthlyPrice: 1450,
+    annualPrice: 1250,
+    description: 'Scale without limits. Built for high-volume creators and agencies.',
+    buttonText: 'Get started',
+    featureGroups: [
+      {
+        title: 'Everything in Pro, plus:',
+        subtitle: 'Exclusive features',
+        items: [
+          { title: 'VIP Support & Implementation', description: 'Benefit from customized setup assistance and live onboarding calls.' }
+        ]
+      },
+      {
+        subtitle: 'Scale Automation',
+        badge: 'NEW',
+        items: [
+          { title: 'Enterprise Social Scheduler', description: 'Post and manage scheduling for social media platforms.' },
+          { title: 'Collaborative Workspaces', description: 'Control team member roles, permissions, and multi-brand dashboards.' },
+          { title: 'Scale Instagram DM Bot', description: 'Maximum automated replies, sequence keywords, and typo correction.' },
+          { title: 'Scale WhatsApp Operations', description: 'Integrate automated broadcast campaigns and conversational CRM flows.' }
+        ]
+      },
+      {
+        subtitle: 'Monetization:',
+        items: [
+          { title: 'Zero Transaction Fee', description: 'Keep 100% of the sales value from your digital books and downloads.' },
+          { title: 'Full Commission Payout', description: 'Keep 100% of direct revenues on affiliate store conversions.' }
+        ]
+      }
+    ]
+  }
+]
+
+export const detailedFeatureComparison = [
+  {
+    category: 'Links & Buttons',
+    id: 'links-and-buttons',
     features: [
-      'Everything in Pro',
-      'Team collaboration',
-      'White-label pages',
-      'Payment collection',
-      'API access',
-      'Dedicated manager'
+      { name: 'Unlimited Links', description: 'Add as many links as you want to your page with no limits.', free: '✓', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'QR Code', description: 'Drive offline traffic online with your unique scan code.', free: '✓', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Email Collection', description: 'Collect email addresses directly from your Linkgrow to build and own your subscriber list.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Phone Number Collection', description: 'Acquire contact phone numbers on your page for direct campaign marketing.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Animation Effects', description: 'Draw attention to your most important link with priority pulsing and animated styles.', free: '-', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Priority Redirects', description: 'Send visitors straight to a specific link for active promotions while capturing analytics.', free: '-', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Spotlight Link', description: 'Display content fully expanded when a visitor lands on your page.', free: '-', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Scheduled Links', description: 'Schedule links to go live and disappear at specific dates and times.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Link Access Lock', description: 'Gate links with age verification, passcodes, or NFT community ownership.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Rich Social & Video Embeds', description: 'Embed Twitch, TikTok, YouTube, Spotify, and more directly on your page.', free: '✓', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Bandsintown & Events', description: 'Share tour dates and events automatically to boost ticket sales.', free: '-', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Music Pre-save', description: 'Let your fans pre-save your next release on Spotify to get more streams.', free: '-', starter: '✓', pro: '✓', premium: '✓' }
+    ]
+  },
+  {
+    category: 'WhatsApp & Instagram Automation',
+    id: 'automation',
+    features: [
+      { name: 'Auto-Responder DM System', description: 'Instantly reply to comments and direct messages on Instagram with conversion links.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Smart WhatsApp Conversions', description: 'Route visitors directly into customized WhatsApp chat streams with prefilled text.', free: '-', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Keyword Triggers', description: 'Define specific word triggers for automated conversational replies.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Scale WhatsApp Operations', description: 'Integrate automated broadcast campaigns and conversational CRM flows.', free: '-', starter: '-', pro: '-', premium: '✓' }
+    ]
+  },
+  {
+    category: 'Monetization',
+    id: 'monetization',
+    features: [
+      { name: 'Custom Storefront', description: 'Sell digital files, ebooks, templates, and courses directly.', free: '9% fee', starter: '9% fee', pro: '5% fee', premium: '0% fee' },
+      { name: 'Sponsored Spaces', description: 'Add sponsored links and get paid by brands.', free: '✓', starter: '✓', pro: '✓', premium: 'Keep 100%' },
+      { name: 'Direct Payments', description: 'Accept tips, donations, and bookings via Stripe or PayPal.', free: '-', starter: '-', pro: '✓', premium: '✓' }
+    ]
+  },
+  {
+    category: 'Customization',
+    id: 'customization',
+    features: [
+      { name: 'Standard Themes', description: 'Access pre-designed style themes to launch quickly.', free: '✓', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Premium Themes', description: 'Unlock advanced background designs, video backgrounds, and fonts.', free: '-', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'White-label Customization', description: 'Remove the Linkgrow branding logo entirely.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Custom Domain Mapping', description: 'Connect your own custom domain (e.g., bio.yourbrand.com).', free: '-', starter: '-', pro: '✓', premium: '✓' }
+    ]
+  },
+  {
+    category: 'Analytics',
+    id: 'analytics',
+    features: [
+      { name: 'Basic Performance Data', description: 'Track overall page views and link clicks.', free: '✓', starter: '✓', pro: '✓', premium: '✓' },
+      { name: 'Advanced Visitor Reports', description: 'Analyze referral sources, location, device types, and CTR.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'Custom Pixel Tracking', description: 'Integrate Meta, Google, TikTok, and Pinterest pixels.', free: '-', starter: '-', pro: '✓', premium: '✓' }
+    ]
+  },
+  {
+    category: 'Marketing Tech',
+    id: 'marketing-tech',
+    features: [
+      { name: 'Marketing Tool Integrations', description: 'Sync leads to Mailchimp, HubSpot, Salesforce, and Zapier.', free: '-', starter: '-', pro: '✓', premium: '✓' },
+      { name: 'UTM Parameters', description: 'Auto-inject tracking campaign parameters to your URLs.', free: '-', starter: '-', pro: '✓', premium: '✓' }
+    ]
+  },
+  {
+    category: 'Management',
+    id: 'management',
+    features: [
+      { name: 'Multi-Page Management', description: 'Create and run multiple bio links from one dashboard.', free: '1 Page', starter: '5 Pages', pro: 'Unlimited', premium: 'Unlimited' },
+      { name: 'Team Access Roles', description: 'Invite staff members to manage links with custom permissions.', free: '-', starter: '-', pro: '-', premium: '✓' },
+      { name: 'VIP Setup Assistance', description: 'Dedicated support manager and custom site configuration.', free: '-', starter: '-', pro: '-', premium: '✓' }
     ]
   }
 ]

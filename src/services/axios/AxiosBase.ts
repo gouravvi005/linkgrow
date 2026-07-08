@@ -6,7 +6,9 @@ import type { AxiosError } from 'axios'
 
 const AxiosBase = axios.create({
     timeout: 60000,
-    baseURL: appConfig.apiPrefix,
+    baseURL: process.env.NEXT_PUBLIC_API_URL
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/v1`
+        : appConfig.apiPrefix,
     withCredentials: true,
 })
 
