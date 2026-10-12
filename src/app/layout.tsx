@@ -11,6 +11,8 @@ import type { ReactNode } from 'react'
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/assets/styles/app.css'
 
+import StoreProvider from '@/store/StoreProvider'
+
 export const metadata = {
   ...pageMetaConfig,
 }
@@ -44,13 +46,15 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <body suppressHydrationWarning>
-          <LocaleProvider locale={locale} messages={messages}>
-            <ThemeProvider locale={locale} theme={theme}>
-              <NavigationProvider navigationTree={navigationTree}>
-                {children}
-              </NavigationProvider>
-            </ThemeProvider>
-          </LocaleProvider>
+          <StoreProvider>
+            <LocaleProvider locale={locale} messages={messages}>
+              <ThemeProvider locale={locale} theme={theme}>
+                <NavigationProvider navigationTree={navigationTree}>
+                  {children}
+                </NavigationProvider>
+              </ThemeProvider>
+            </LocaleProvider>
+          </StoreProvider>
         </body>
       </html>
     </AuthProvider>

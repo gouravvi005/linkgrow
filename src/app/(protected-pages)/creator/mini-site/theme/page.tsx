@@ -72,6 +72,7 @@ export default function ThemePage() {
         setHeroBannerColor1,
         heroBannerColor2,
         setHeroBannerColor2,
+        saveChangesToBackend,
     } = useMiniSite()
 
     const handleApplyTheme = (themeId: string) => {
@@ -105,6 +106,20 @@ export default function ThemePage() {
                         Theme & Styling Settings
                     </h2>
                 </div>
+                <Button
+                    variant="solid"
+                    onClick={async () => {
+                        try {
+                            await saveChangesToBackend();
+                            alert('Theme settings saved to backend successfully!');
+                        } catch (err) {
+                            console.error('Failed to save theme settings:', err);
+                        }
+                    }}
+                    className="flex items-center gap-1 text-xs font-bold cursor-pointer"
+                >
+                    <Icons.Save size={14} /> Save Changes
+                </Button>
             </div>
 
             {/* Shared Routing Tabs */}

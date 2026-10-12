@@ -216,6 +216,12 @@
         "account": {
             "title": "Account",
             "logout": "Logout"
+        },
+        "adminPanel": {
+            "title": "Admin Panel",
+            "userList": "User List",
+            "workspaceList": "Workspace List",
+            "settings": "Admin Settings"
         }
     }
 }

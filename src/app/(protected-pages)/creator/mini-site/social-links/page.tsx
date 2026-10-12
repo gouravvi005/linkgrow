@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { useMiniSite } from '../MiniSiteContext'
 import LinkInBioTabs from '@/components/shared/LinkInBioTabs'
-import { Input, Switcher } from '@/components/ui'
+import { Button, Input, Switcher } from '@/components/ui'
 import Card from '@/components/ui/Card'
 import AdaptiveCard from '@/components/shared/AdaptiveCard'
 import * as Icons from 'lucide-react'
@@ -69,7 +69,7 @@ const ALL_PLATFORMS = [
 ]
 
 export default function SocialLinksPage() {
-    const { pageData, setPageData } = useMiniSite()
+    const { pageData, setPageData, saveChangesToBackend } = useMiniSite()
 
     const [showPicker, setShowPicker] = useState(false)
     const [pickerSearch, setPickerSearch] = useState('')
@@ -125,13 +125,29 @@ export default function SocialLinksPage() {
     return (
         <div className="flex flex-col gap-6 w-full animate-in fade-in duration-300">
             {/* Header */}
-            <div>
-                <span className="text-xs font-bold tracking-wider text-primary uppercase">
-                    Mini Site Editor
-                </span>
-                <h2 className="font-bold text-gray-900 dark:text-gray-150 mt-1">
-                    Social Links Configuration
-                </h2>
+            <div className="flex justify-between items-center">
+                <div>
+                    <span className="text-xs font-bold tracking-wider text-primary uppercase">
+                        Mini Site Editor
+                    </span>
+                    <h2 className="font-bold text-gray-900 dark:text-gray-150 mt-1">
+                        Social Links Configuration
+                    </h2>
+                </div>
+                <Button
+                    variant="solid"
+                    onClick={async () => {
+                        try {
+                            await saveChangesToBackend();
+                            alert('Social links saved to backend successfully!');
+                        } catch (err) {
+                            console.error('Failed to save social links:', err);
+                        }
+                    }}
+                    className="flex items-center gap-1 text-xs font-bold cursor-pointer"
+                >
+                    <Icons.Save size={14} /> Save Changes
+                </Button>
             </div>
 
             {/* Shared Tabs */}

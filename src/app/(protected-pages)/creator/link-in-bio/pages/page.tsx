@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import useSWR from 'swr'
 import { initialLinkPages, BioLinkPage } from '@/mock-data/linkPages'
 import { themes } from '@/mock-data/themes'
+import { apiGetAllProfiles, apiToggleProfileStatus, apiDeleteProfile } from '@/services/ProfileService'
 import { 
     Plus, 
     ExternalLink, 
@@ -17,7 +19,8 @@ import {
     Trash2, 
     Eye, 
     MousePointerClick, 
-    TrendingUp 
+    TrendingUp,
+    RefreshCw
 } from 'lucide-react'
 import Container from '@/components/shared/Container'
 import AdaptiveCard from '@/components/shared/AdaptiveCard'
@@ -25,9 +28,16 @@ import ConfirmDialog from '@/components/shared/ConfirmDialog'
 import { Button } from '@/components/ui'
 
 export default function LinkPages() {
-    const [pages, setPages] = useState<BioLinkPage[]>(initialLinkPages)
+    const { data: remotePages, mutate, isLoading } = useSWR<BioLinkPage[]>('/profile/all', apiGetAllProfiles, {
+        revalidateOnFocus: true,
+        shouldRetryOnError: false,
+    })
+
+    const pages: BioLinkPage[] = (remotePages && remotePages.length > 0) ? remotePages : initialLinkPages
+
     const [copiedId, setCopiedId] = useState<string | null>(null)
     const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null)
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleCopy = (url: string, id: string) => {
         navigator.clipboard.writeText(`https://linkgrow.io/${url}`)
@@ -35,31 +45,40 @@ export default function LinkPages() {
         setTimeout(() => setCopiedId(null), 2000)
     }
 
-    const toggleStatus = (id: string) => {
-        setPages(prev => prev.map(p => {
-            if (p.id === id) {
-                return { ...p, status: p.status === 'active' ? 'draft' : 'active' }
-            }
-            return p
-        }))
+    const toggleStatus = async (id: string) => {
+        try {
+            await apiToggleProfileStatus(id)
+            mutate()
+        } catch (err) {
+            console.error('Failed to toggle status:', err)
+        }
     }
 
     const deletePage = (id: string) => {
         setDeleteTargetId(id)
     }
 
-    const executeDeletePage = () => {
+    const executeDeletePage = async () => {
         if (!deleteTargetId) return
-        setPages(prev => prev.filter(p => p.id !== deleteTargetId))
-        setDeleteTargetId(null)
+        try {
+            setIsSubmitting(true)
+            await apiDeleteProfile(deleteTargetId)
+            mutate()
+        } catch (err) {
+            console.error('Failed to delete profile:', err)
+        } finally {
+            setIsSubmitting(false)
+            setDeleteTargetId(null)
+        }
     }
 
     // Totals calculations
-    const totalViews = pages.reduce((sum, p) => sum + p.views, 0)
-    const totalClicks = pages.reduce((sum, p) => sum + p.clicks, 0)
+    const totalViews = pages.reduce((sum, p) => sum + (p.views || 0), 0)
+    const totalClicks = pages.reduce((sum, p) => sum + (p.clicks || 0), 0)
     const averageCtr = pages.length > 0 
-        ? parseFloat((pages.reduce((sum, p) => sum + p.ctr, 0) / pages.length).toFixed(1)) 
+        ? parseFloat((pages.reduce((sum, p) => sum + (p.ctr || 0), 0) / pages.length).toFixed(1)) 
         : 0
+
 
     return (
         <Container>

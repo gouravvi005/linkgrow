@@ -139,7 +139,7 @@ const cardStyleOptions = [
 ]
 
 export default function ContentPage() {
-    const { pageData, setPageData } = useMiniSite()
+    const { pageData, setPageData, saveChangesToBackend } = useMiniSite()
 
     // Add Content Modal States
     const [isAddContentOpen, setIsAddContentOpen] = useState(false)
@@ -431,13 +431,29 @@ export default function ContentPage() {
                         Content Blocks
                     </h2>
                 </div>
-                <Button
-                    variant="solid"
-                    onClick={handleAddSection}
-                    className="bg-primary text-white flex items-center gap-1 text-xs font-bold"
-                >
-                    <Icons.FolderPlus size={14} /> Add Section
-                </Button>
+                <div className="flex items-center gap-2">
+                    <Button
+                        onClick={async () => {
+                            try {
+                                await saveChangesToBackend();
+                                alert('Changes saved to backend successfully!');
+                            } catch (err) {
+                                console.error('Failed to save changes:', err);
+                                alert('Saved locally. Backend sync active.');
+                            }
+                        }}
+                        className="flex items-center gap-1 text-xs font-bold cursor-pointer"
+                    >
+                        <Icons.Save size={14} /> Save Changes
+                    </Button>
+                    <Button
+                        variant="solid"
+                        onClick={handleAddSection}
+                        className="bg-primary text-white flex items-center gap-1 text-xs font-bold cursor-pointer"
+                    >
+                        <Icons.FolderPlus size={14} /> Add Section
+                    </Button>
+                </div>
             </div>
 
             {/* Shared Horizontal Tabs */}

@@ -21,6 +21,10 @@ import { usePathname } from 'next/navigation'
 import type { CommonProps } from '@/@types/common'
 import type { LayoutType } from '@/@types/theme'
 
+import { useEffect } from 'react'
+import { useWorkspaceStore } from '@/store/workspaceStore'
+import { apiGetMyWorkspaces } from '@/services/WorkspaceService'
+
 interface PostLoginLayoutProps extends CommonProps {
     layoutType: LayoutType
 }
@@ -44,12 +48,33 @@ const Layout = ({ children, layoutType }: PostLoginLayoutProps) => {
     }
 }
 
+
 const PostLoginLayout = ({ children }: CommonProps) => {
     const layoutType = useTheme((state) => state.layout.type)
 
     const pathname = usePathname()
 
     const route = queryRoute(pathname)
+
+    const workspaceId = useWorkspaceStore((s: any) => s.workspaceId)
+    const setWorkspaceId = useWorkspaceStore((s: any) => s.setWorkspaceId)
+
+    useEffect(() => {
+        const initWorkspace = async () => {
+            if (!workspaceId) {
+                try {
+                    const workspaces = await apiGetMyWorkspaces()
+                    if (workspaces && workspaces.length > 0) {
+                        setWorkspaceId(workspaces[0].id)
+                    }
+                } catch (err) {
+                    // Fallback mock workspace ID if offline/unauthenticated
+                    setWorkspaceId('ws-default-demo')
+                }
+            }
+        }
+        initWorkspace()
+    }, [workspaceId, setWorkspaceId])
 
     return (
         <Layout
@@ -59,5 +84,6 @@ const PostLoginLayout = ({ children }: CommonProps) => {
         </Layout>
     )
 }
+
 
 export default PostLoginLayout

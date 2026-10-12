@@ -83,15 +83,15 @@ const CreateProfileClient = () => {
                 // Auto sign-in to create a NextAuth session before going to dashboard
                 await onSignInWithCredentials(
                     { email, password },
-                    '/dashboards/ecommerce',
+                    '/dashboards',
                 )
             } else {
                 // Fallback: no credentials found, just push to dashboard
-                router.push('/dashboards/ecommerce')
+                router.push('/dashboards')
             }
         } catch (error) {
             console.error(error)
-            router.push('/dashboards/ecommerce')
+            router.push('/dashboards')
         } finally {
             setSubmitting(false)
         }

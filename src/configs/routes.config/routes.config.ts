@@ -4,11 +4,12 @@ import uiComponentsRoute from './uiComponentsRoute'
 import authRoute from './authRoute'
 import authDemoRoute from './authDemoRoute'
 import guideRoute from './guideRoute'
-// import othersRoute from './othersRoute'
+import creatorRoute from './creatorRoute'
 import type { Routes } from '@/@types/routes'
 
 export const protectedRoutes: Routes = {
     ...dashboardsRoute,
+    ...creatorRoute,
     ...uiComponentsRoute,
     ...authDemoRoute,
     ...conceptsRoute,

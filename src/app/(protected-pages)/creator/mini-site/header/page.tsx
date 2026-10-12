@@ -29,6 +29,7 @@ export default function HeaderPage() {
         setHeroBannerColor1,
         heroBannerColor2,
         setHeroBannerColor2,
+        saveChangesToBackend,
     } = useMiniSite()
 
     const handleProfileTitleChange = (val: string) => {
@@ -77,13 +78,28 @@ export default function HeaderPage() {
     return (
         <div className="flex flex-col gap-6 w-full animate-in fade-in duration-300">
             {/* Page Title Header */}
-            <div>
-                <span className="text-xs font-bold tracking-wider text-primary uppercase">
-                    Mini Site Editor
-                </span>
-                <h2 className="font-bold text-gray-900 dark:text-gray-150 mt-1">
-                    Profile Header Settings
-                </h2>
+            <div className="flex justify-between items-center">
+                <div>
+                    <span className="text-xs font-bold tracking-wider text-primary uppercase">
+                        Mini Site Editor
+                    </span>
+                    <h2 className="font-bold text-gray-900 dark:text-gray-150 mt-1">
+                        Profile Header Settings
+                    </h2>
+                </div>
+                <Button
+                    onClick={async () => {
+                        try {
+                            await saveChangesToBackend();
+                            alert('Header settings saved to backend successfully!');
+                        } catch (err) {
+                            console.error('Failed to save header settings:', err);
+                        }
+                    }}
+                    className="flex items-center gap-1 text-xs font-bold cursor-pointer"
+                >
+                    <Icons.Save size={14} /> Save Changes
+                </Button>
             </div>
 
             {/* Shared Navigation Tabs */}
